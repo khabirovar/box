@@ -4,5 +4,5 @@ def wsgi_application(environ, start_response):
         ('Content-Type', 'text/plain')
     ]
     start_response(status, headers)
-    return [i+'\n' for i in env['QUERY_STRING'].split('&')]
+    return [bytes(i+'\n') for i in environ['QUERY_STRING'].split('&')]
 	
